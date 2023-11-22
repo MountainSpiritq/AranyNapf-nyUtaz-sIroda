@@ -21,6 +21,10 @@
       body {
         transition: background-color 0.5s;
       }
+      dialog[open]{
+        animation-name: learn;
+        animation-duration: 0.7s;
+      }
       .dark-theme {
         background-color: rgb(58, 53, 53);
         color: aliceblue;
@@ -32,6 +36,19 @@
         overflow: hidden;
         object-fit: cover;
       }
+      .myModal{
+        height: 20rem;
+        width: 20rem;
+        text-align: justify;
+        
+      }
+
+      @keyframes learn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+      }
+
+
     </style>
   </head>
   <body>
@@ -51,10 +68,11 @@
         </div>
       </div>
     </nav>
-    <div class="container">
-      <dialog>
-        <button class="close">Close</button>
-        <p class="text"></p>
+    <div class="container-fluid">
+      <dialog class="rounded text-center myModal2">
+        
+        <p class="text myModal"></p>
+        <button type="button" class="close btn">Close</button>
       </dialog>
       
       
@@ -71,6 +89,9 @@
         document.querySelector('.myNav1').classList.toggle("bg-dark")
         document.querySelector('.myNav2').classList.toggle("bg-dark")
         document.querySelector('.myTitle').classList.toggle("text-light")
+        document.querySelector('.myModal').classList.toggle("text-light")
+        document.querySelector('.myModal2').classList.toggle("bg-dark")
+        document.querySelector('.close').classList.toggle("text-light")
         
         
       };
@@ -84,8 +105,9 @@
           <div class="card p-2 m-2 bg-secondary"  style="width: 18rem;">
               <img src="${obj.image}" class="card-img-top" alt="...">
               <div class="card-body bg-dark text-white">
-                <h5 class="text-center" >${obj.name}</h5>
-                <p class="text-center" onclick="showInfo(event)" data-info="${obj.info}">info</p>
+                <h5 class="" >${obj.name}</h5>
+                <p>Price: ${obj.price}</p>
+                <p  class="text-center text-secondary" role="button"  onclick="showInfo(event)" data-info="${obj.info}">info</p>
                 
             </div>
           </div>
