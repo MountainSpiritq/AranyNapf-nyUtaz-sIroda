@@ -42,6 +42,11 @@
         text-align: justify;
         
       }
+      .myImg{
+        height: 30vh;
+        width:auto;
+        border: 4px solid rgb(63, 38, 125)
+      }
 
       @keyframes learn {
         from {opacity: 0;}
@@ -70,9 +75,9 @@
     </nav>
     <div class="container-fluid">
       <dialog class="rounded text-center myModal2">
-        
+        <img class="img-fluid myImg rounded" src="" alt="" >
         <p class="text myModal"></p>
-        <button type="button" class="close btn">Close</button>
+        <button type="button" class="close btn m-3 border">Close</button>
       </dialog>
       
       
@@ -107,7 +112,7 @@
               <div class="card-body bg-dark text-white">
                 <h5 class="" >${obj.name}</h5>
                 <p>Price: ${obj.price}</p>
-                <p  class="text-center text-secondary" role="button"  onclick="showInfo(event)" data-info="${obj.info}">info</p>
+                <p  class="text-center text-secondary" role="button"  onclick="showInfo(event)" data-image=${obj.image} data-info="${obj.info}">info</p>
                 
             </div>
           </div>
@@ -122,6 +127,9 @@
         const text = document.querySelector('.text')
         modal.showModal()
         text.innerHTML = e.target.dataset.info
+        const image = document.querySelector('.myImg')
+        modal.showModal()
+        image.src = e.target.dataset.image
       }
       const closeModal = document.querySelector('.close')
       closeModal.addEventListener('click', () => {
