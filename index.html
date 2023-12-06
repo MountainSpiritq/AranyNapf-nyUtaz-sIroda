@@ -11,6 +11,7 @@
       crossorigin="anonymous"
     />
     <script src="getData.js"></script>
+    <script src="test.js" defer></script>
     <style>
 
     @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500&display=swap');
@@ -20,6 +21,11 @@
       }
       body {
         transition: background-color 0.5s;
+      }
+      .myModal2{
+        
+        height:fit-content;
+        width: 30vw;
       }
       dialog[open]{
         animation-name: learn;
@@ -37,9 +43,11 @@
         object-fit: cover;
       }
       .myModal{
-        height: 20rem;
-        width: 20rem;
-        text-align: justify;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
         
       }
       .myImg{
@@ -108,7 +116,7 @@
           console.log(obj.name);
           document.querySelector(".szallasok").innerHTML += `
           <div class="card p-2 m-2 bg-secondary"  style="width: 18rem;">
-              <img src="${obj.image}" class="card-img-top" alt="...">
+              <img src="${obj.image}" class="card-img-top " alt="...">
               <div class="card-body bg-dark text-white">
                 <h5 class="" >${obj.name}</h5>
                 <p>Price: ${obj.price}</p>
